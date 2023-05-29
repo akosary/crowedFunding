@@ -97,7 +97,7 @@ DATABASES = {
         'NAME': 'crowdfunding',
         'USER' : 'root',
         'PASSWORD' : '',
-        'Host' : 'localhost'
+        'HOST' : '127.0.0.1'
     }
 }
 
@@ -126,11 +126,11 @@ AUTH_PASSWORD_VALIDATORS = [
 # EMAIL_HOST_PASSWORD = 'Nero_iti@984$1'
 # EMAIL_PORT = 587  
 
-EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.gmail.com'  
-EMAIL_HOST_USER = 'MANKRA42TEAM@gmail.com'  
-EMAIL_HOST_PASSWORD = 'Mankra12345*'
-EMAIL_PORT = 587  
+# EMAIL_USE_TLS = True  
+# EMAIL_HOST = 'smtp.gmail.com'  
+# EMAIL_HOST_USER = '************@gmail.com'  
+# EMAIL_HOST_PASSWORD = '**************'
+# EMAIL_PORT = 587  
 
 
 # Internationalization
