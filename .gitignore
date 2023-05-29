@@ -15,7 +15,7 @@ env
 env__
 venv
 .venv
-
+README.md
 # other
 .DS_Store
 
