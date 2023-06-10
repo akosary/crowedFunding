@@ -97,29 +97,6 @@ def signup(request):
                 user.save()
                 print('print succuss')
                 return redirect("login")
-                # current_site = get_current_site(request)
-                # mail_subject = 'Activation link has been sent to your email id'
-                # message = render_to_string('accounts/acc_active_email.html', {
-                #     'user': user,
-                #     'domain': current_site.domain,
-                #     'uid': urlsafe_base64_encode(force_bytes(user.pk)),
-                #     'token': account_activation_token.make_token(user),
-                # })
-                # # to_email = form.cleaned_data.get('email')
-                # # email = EmailMessage(
-                # #     mail_subject, message, to=[to_email]
-                # # )
-                # # email.send()
-                # to_email = [form.cleaned_data.get('email')]
-                # email = EmailMessage(
-                #     mail_subject, message, to=[to_email]
-                # )
-                # from_email=settings.EMAIL_HOST_USER
-                # # email.send()
-                # send_mail( mail_subject, message, from_email, to_email)
-
-                # msg='Please confirm your email address to complete the registration'
-
         else:
             form = SignupForm()
         return render(request, 'accounts/register.html', {'form': form, "msg": msg})
