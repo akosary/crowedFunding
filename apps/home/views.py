@@ -24,12 +24,10 @@ def index(request):
         user = getUser(request)
     else:
         user = NULL
-        
     highest_rated_projects = Project.objects.annotate(
        avg_rate=Avg('rate__rate')).order_by('-avg_rate')[:5]
     last_5_projects = Project.objects.all().order_by('-id')[:5]
     featured_projects = Project.objects.filter(is_featured=1)[:5]
-
     images = []
     for project in highest_rated_projects:
         images.append(project.image_set.all().first().images.url)
