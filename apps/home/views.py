@@ -59,8 +59,6 @@ def create_new_project(request):
         if request.method == 'GET':
 
             form = Project_Form()
-           
-            
             return render(request, "home/create-project.html", context={"form": form, 'images': my_images, "user":user})
 
         if request.method == "POST":
@@ -97,7 +95,6 @@ def create_new_project(request):
         else:
             form = Project_Form()
         return render(request, "home/create-project.html", context={"form": form, "user":user})
-
 
 def show_project_details(request, project_id):
     if 'user_id' not in request.session:
@@ -137,11 +134,9 @@ def show_project_details(request, project_id):
         donation_average = (donate["donation__sum"] if donate["donation__sum"] else 0)*100/project.total_target
         average_rating = project.rate_set.all().aggregate(Avg('rate'))['rate__avg']
 
-        # return user rating if found
         user_rating = 0
         
         if 'user_id' in request.session:
-            # prev_rating = Project.rate_set.get(user_id=user.id)
             prev_rating=[]
 
             if prev_rating:
@@ -505,13 +500,11 @@ def rate(request, project_id):
 
 def apply_rating(project, user, rating):
 
-    # If User rated the same project before --> change rate value
     prev_user_rating = project.rate_set.filter(user_id=user)
     if prev_user_rating:
         prev_user_rating[0].rate = int(rating)
         prev_user_rating[0].save()
 
-    # first time to rate this project
     else:
         Rate.objects.create(
             rate=rating, projcet_id=project.id, user_id=user)
@@ -536,7 +529,6 @@ def cancel_project(request, project_id):
             else:
                 return redirect('show_project', project_id)
                 
-           
 
 def pages(request):  
     if 'user_id' not in request.session:
